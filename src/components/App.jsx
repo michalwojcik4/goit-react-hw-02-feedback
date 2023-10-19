@@ -17,7 +17,6 @@ export class App extends Component {
   };
 
   render() {
-    const options = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     const positiveFeedback = total ? Math.round((good / total) * 100) : 0;
@@ -25,7 +24,9 @@ export class App extends Component {
     return (
       <div>
         <Section title="Please leave feedback">
-          <FeedbackOptions options={options} onLeaveFeedback={this.increment} />
+          <FeedbackOptions name={'Good'} onLeaveFeedback={this.increment} />
+          <FeedbackOptions name={'Neutral'} onLeaveFeedback={this.increment} />
+          <FeedbackOptions name={'Bad'} onLeaveFeedback={this.increment} />
         </Section>
         <Section title="Statistics">
           {total === 0 ? (

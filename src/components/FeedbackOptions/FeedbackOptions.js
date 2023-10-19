@@ -1,17 +1,11 @@
 import PropTypes from 'prop-types';
 
-export function FeedbackOptions({ options, onLeaveFeedback }) {
+export function FeedbackOptions({ name, onLeaveFeedback }) {
   return (
     <div>
-      {options.map(option => (
-        <button
-          type='button'
-          key={option}
-          onClick={() => onLeaveFeedback(option)}
-        >
-          {option}
-        </button>
-      ))}
+      <button type="button" onClick={() => onLeaveFeedback(name.toLowerCase())}>
+        {name}
+      </button>
     </div>
   );
 }
