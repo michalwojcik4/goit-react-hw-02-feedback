@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export function Notification ({message}){
     return (
         <>
@@ -5,3 +7,7 @@ export function Notification ({message}){
         </>
     )
 }
+
+Notification.propTypes = {
+    message: PropTypes.string,
+  };

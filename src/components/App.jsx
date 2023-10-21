@@ -5,6 +5,8 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
 import { Notification } from './Notification/Notification';
 
+import css from './App.module.css';
+
 export class App extends Component {
   state = {
     good: 0,
@@ -24,9 +26,14 @@ export class App extends Component {
     return (
       <div>
         <Section title="Please leave feedback">
-          <FeedbackOptions name={'Good'} onLeaveFeedback={this.increment} />
-          <FeedbackOptions name={'Neutral'} onLeaveFeedback={this.increment} />
-          <FeedbackOptions name={'Bad'} onLeaveFeedback={this.increment} />
+          <div className={css.buttonList}>
+            <FeedbackOptions name={'Good'} onLeaveFeedback={this.increment} />
+            <FeedbackOptions
+              name={'Neutral'}
+              onLeaveFeedback={this.increment}
+            />
+            <FeedbackOptions name={'Bad'} onLeaveFeedback={this.increment} />
+          </div>
         </Section>
         <Section title="Statistics">
           {total === 0 ? (
